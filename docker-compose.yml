@@ -7,6 +7,9 @@ services:
     restart: always
     ports:
       - "3307:3306"
+    volumes:                
+      - ./init:/docker-entrypoint-initdb.d
+      - ./db:/var/lib/mysql  
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: lumen

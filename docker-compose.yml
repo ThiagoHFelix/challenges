@@ -2,7 +2,7 @@ version: "3.3"
 
 services:
   db:
-    container_name: mysql
+    
     image: mysql:5.7
     restart: always
     ports:
@@ -12,7 +12,7 @@ services:
       MYSQL_DATABASE: lumen
 
   nginx:
-    container_name: nginx
+    
     build: images/nginx
     command: nginx -g "daemon off;"
     links:
@@ -23,11 +23,11 @@ services:
       - db
 
   php:
-    container_name: php
+    
     build: images/php
     volumes:
       - ./lumen:/var/www/html
-    working_dir: /var/www/html/app/public
+    working_dir: /var/www/html
     command: php-fpm
     links:
       - db:db

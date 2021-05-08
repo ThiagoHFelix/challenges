@@ -27,3 +27,17 @@ docker run --rm -v ${PWD}:/application --workdir="/application" composer:latest 
 docker-compose up -d
 ```
 
+5. Crie a base da dados
+
+```shell
+docker container exec -it challenges_php_1 php artisan migrate
+```
+
+6. Crie os dados base
+
+```shell
+docker container exec -it challenges_php_1 php artisan db:seed
+```
+
+
+

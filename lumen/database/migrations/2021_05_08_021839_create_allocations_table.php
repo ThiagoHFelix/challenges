@@ -14,6 +14,7 @@ class CreateAllocationsTable extends Migration
     public function up()
     {
         Schema::create('allocations', function (Blueprint $table) {
+            $table->bigIncrements('id');
             $table->unsignedBigInteger('hero_id');
             $table->unsignedBigInteger('threat_id');
             $table->unsignedBigInteger('status_id');

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateHeroesTable extends Migration
+class CreateMonstersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,9 @@ class CreateHeroesTable extends Migration
      */
     public function up()
     {
-        Schema::create('heroes', function (Blueprint $table) {
+        Schema::create('monsters', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name','50')->unique();
-            $table->decimal('latitude',20,8,true);
-            $table->decimal('longitude',20,8,true);
-            $table->unsignedBigInteger('ranking_id');
-            $table->foreign('ranking_id')->references('id')->on('rankings');
+            $table->string('name');
             $table->timestamps();
         });
     }
@@ -31,6 +27,6 @@ class CreateHeroesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('heroes');
+        Schema::dropIfExists('monsters');
     }
 }

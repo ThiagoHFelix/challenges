@@ -15,7 +15,9 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             RankingSeeder::class,
-            StatusSeeder::class
+            StatusSeeder::class,
+            UserSeeder::class,
+            ThreatLevelSeeder::class
         ]);
     }
 }

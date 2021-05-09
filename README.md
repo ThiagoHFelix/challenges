@@ -2,7 +2,7 @@
 
 ### Dependências :notebook:
 - Docker 
-    * [How to install](https://docs.docker.com/compose/install/)
+    * [Veja como instalar](https://docs.docker.com/compose/install/)
 
 ### Rodando o projeto :smile:
 
@@ -73,8 +73,8 @@ curl --request POST http://localhost:8080/api/auth/login -d 'email=admin@admin.c
 TOKEN="eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiZDBhODYzOGQxM2ExNjQ1NTQwYjkzYzU3MTczNmZlMWE1ODZjZDJmMzc5YjNiNWRmOTk4NTYzNTM5ZDM2NThmMWVmZDVlYzM2ZDkwZjJmZDIiLCJpYXQiOjE2MjA1MjI1NDAsIm5iZiI6MTYyMDUyMjU0MCwiZXhwIjoxNjUyMDU4NTQwLCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.aPzdTU-rLgL2_faIqnlRW73CRdcPJ3dqGEPyxQS2foHYt3tFGHmfTCjYi8blOJ1sWQOaPeM__6sXIKl5BLSgZuTo9nm8c0wphlIMwoj4lgJ_LvFVeyqGNQ2MYkpGxzpcSVISLC55J3v8Rs53xwUxj9SSfl8FpDnaZt1a9Qmr8FmkbiYpLrCR5eWHtN96NkV2fN6PIWcidTBIGGTF6cfw0toehr5Ywp3DH6hHo2hWPNkA5Nnl9OHJFYU__67vmABoDkxk4VQ3OcZHnUHriEXIY8fXlpmE6j42LjivJKAcYknL7z1DqPqFNhGNE2nYCyBx9BfOdRBcw0nAxnAypDRkeV5tEsnEH1wlnmRLgjPYAGRPLKBzyZkHDn0ILsJL3Qq1LoAUtM8OyPfjrsaRNkYwDGXRR0_z8yWMDZwSo6nOeRdLwN5IwVTlqFdnYsIJwEUnlza812IJksgG9d8WtVZe2N7bDzSA-Nz6VA_eCa7lKon02dgT1wkfh0Rn3I2WjhvmgMp6LVdBjrRRf8sp4jQPV8JKDLe-3UwUFsETysxbhpxxvHiRORx0CRLUB" 
 ```
 5. Faça a requisição
-```bash
-curl -H 'Accept: application/json' -H "Authorization: Bearer ${TOKEN}" --request GET https://localhost:8080/api/hero
+```shell
+curl -H 'Accept: application/json' -H "Authorization: Bearer ${TOKEN}" --request GET http://localhost:8080/api/hero
 ```    
 ### Rotas
 

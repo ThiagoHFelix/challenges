@@ -32,7 +32,7 @@ class StatusController extends Controller
     {
   
         $this->validate($request, [
-            'title'       => 'unique:status',
+            'title'   => 'required|unique:status',
         ]);
 
         $status = Status::find($id);
@@ -69,7 +69,7 @@ class StatusController extends Controller
         $status->delete();
 
         return response()->json([
-            "success" => false,
+            "success" => true,
             "message" => "Status destroyed with success"
         ],200);
     }

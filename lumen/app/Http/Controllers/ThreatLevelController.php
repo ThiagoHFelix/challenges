@@ -32,7 +32,7 @@ class ThreatLevelController extends Controller
     {
   
         $this->validate($request, [
-            'title'   => 'unique:threat_levels'
+            'title'   => 'required|unique:threat_levels'
         ]);
 
         $threat_level = ThreatLevel::find($id);
@@ -69,7 +69,7 @@ class ThreatLevelController extends Controller
         $threat_level->delete();
 
         return response()->json([
-            "success" => false,
+            "success" => true,
             "message" => "Threat Level destroyed with success"
         ], 200);
     }

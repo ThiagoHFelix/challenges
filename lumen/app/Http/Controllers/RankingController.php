@@ -70,7 +70,7 @@ class RankingController extends Controller
         $ranking->delete();
 
         return response()->json([
-            "success" => false,
+            "success" => true,
             "message" => "Ranking destroyed with success"
         ], 200);
     }

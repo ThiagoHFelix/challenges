@@ -12,20 +12,50 @@ class ThreatController extends Controller
 
     public function index()
     {
-        return response()->json(Threat::with('level')->get());                          
+        return response()->json(Threat::with(['monster','level'])->get());                          
     }
 
     public function store(Request $request)
     {
         $this->validate($request, [
-            'monster_id' => 'required|integer',
-            'level_id'   => 'required|integer'
+            'monster_id'    => 'required_without:monster_name|integer',
+            'monster_name'  => 'required_without:monster_id',
+            'level_id'      => 'required_without:level_title|integer',
+            'level_title'   => 'required_without:level_id', 
+            'latitude'      => 'required|numeric',
+            'longitude'     => 'required|numeric'
         ]);
 
-        Monster::findOrFail($request->monster_id);
-        ThreatLevel::findOrFail($request->level_id);
+        $threat_data = $request->only(['monster_id' , 'level_id', 'latitude', 'longitude']);
 
-        $threat = Threat::create($request->only(['monster_id', 'level_id']));
+        if($request->input('monster_id'))
+        {
+            Monster::findOrFail($request->monster_id);
+        }
+        else if ($request->input('monster_name'))
+        {
+            $monster = Monster::firstOrCreate([
+                "name" => $request->monster_name
+            ]);
+            $threat_data["monster_id"] = $monster->id;
+        }
+
+        if($request->input('level_id'))
+        {
+            ThreatLevel::findOrFail($request->level_id);
+        }
+        else if ($request->input('level_title'))
+        {
+            $threat_level = ThreatLevel::firstOrCreate([
+                "title" => $request->level_title
+            ]);
+            $threat_data["level_id"] = $threat_level->id;
+        }
+     
+        $threat = Threat::create($threat_data);
+
+        $threat->monster;
+        $threat->level;
 
         return response()->json([
             "success" => true,
@@ -38,18 +68,46 @@ class ThreatController extends Controller
     {
   
         $this->validate($request, [
-            'monster_id' => 'integer',
-            'level_id'   => 'integer'
+            'monster_id'    => 'integer',
+            'level_id'      => 'integer',
+            'latitude'      => 'numeric',
+            'longitude'     => 'numeric'
         ]);
+            
+        $fields = $request->only(['monster_id', 'monster_name', 'level_title' , 'level_id', 'latitude', 'longitude']);
+
+        if(!count($fields))
+        {
+            return response()->json([
+                "success" => true,
+                "message" => "There is nothing to change"
+            ],200);
+        }
+
+        $threat_data = $request->only(['monster_id' , 'level_id', 'latitude', 'longitude']);
 
         if($request->input('monster_id'))
         {
             Monster::findOrFail($request->monster_id);
         }
+        else if ($request->input('monster_name'))
+        {
+            $monster = Monster::firstOrCreate([
+                "name" => $request->monster_name
+            ]);
+            $threat_data["monster_id"] = $monster->id;
+        }
 
         if($request->input('level_id'))
         {
             ThreatLevel::findOrFail($request->level_id);
+        }
+        else if ($request->input('level_title'))
+        {
+            $threat_level = ThreatLevel::firstOrCreate([
+                "title" => $request->level_title
+            ]);
+            $threat_data["level_id"] = $threat_level->id;
         }
 
         $threat = Threat::find($id);
@@ -62,7 +120,10 @@ class ThreatController extends Controller
             ],404);
         }  
         
-        $threat->update($request->only(['title','level_id']));
+        $threat->update($threat_data);
+
+        $threat->monster;
+        $threat->level;
 
         return response()->json([
             "success"  => true,
@@ -86,7 +147,7 @@ class ThreatController extends Controller
         $threat->delete();
 
         return response()->json([
-            "success" => false,
+            "success" => true,
             "message" => "Threat destroyed with success"
         ], 200);
     }

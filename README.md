@@ -79,7 +79,7 @@ curl -H 'Accept: application/json' -H "Authorization: Bearer ${TOKEN}" --request
 ### Rotas
 
 
-Tipo | Rota | Controller | Action | Middleware  
+Method | Path | Controller | Action | Middleware  
 ---| --- | --- | --- | ----
 GET | / | - | - | -
 POST | /api/auth/register | AuthController | register | -
@@ -109,3 +109,5 @@ GET | /api/allocation | AllocationController | index | Auth
 POST | /api/allocation | AllocationController | store | Auth
 PUT | /api/allocation/{id} | AllocationController | update | Auth
 DELETE | /api/allocation/{id} | AllocationController | destroy | Auth
+
++ Você pode obter a collenction do Postman nesse arquivo : [Arquivo](./iHero.postman_collection) 

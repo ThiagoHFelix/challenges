@@ -15,7 +15,8 @@ class CreateThreatLevelsTable extends Migration
     {
         Schema::create('threat_levels', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('title',50);
+            $table->string('title',50)->unique();
+            $table->timestamps();
         });
     }
 

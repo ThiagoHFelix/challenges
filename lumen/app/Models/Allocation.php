@@ -13,17 +13,17 @@ class Allocation extends Model
 
     public function hero()
     {
-        return $this->hasOne(Hero::class, 'hero_id', 'id');
+        return $this->hasOne(Hero::class, 'id', 'hero_id');
     }
 
     public function threat()
     {
-        return $this->hasOne(Threat::class, 'threat_id', 'id');
+        return $this->hasOne(Threat::class, 'id', 'threat_id')->with(['level', 'monster']);
     }
 
     public function status()
     {
-        return $this->hasOne(Status::class, 'status_id', 'id');
+        return $this->hasOne(Status::class, 'id', 'status_id');
     }
 
 

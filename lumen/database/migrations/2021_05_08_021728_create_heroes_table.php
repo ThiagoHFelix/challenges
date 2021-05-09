@@ -16,8 +16,8 @@ class CreateHeroesTable extends Migration
         Schema::create('heroes', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name','50')->unique();
-            $table->decimal('latitude',20,8,true);
-            $table->decimal('longitude',20,8,true);
+            $table->decimal('latitude',20,8,true)->default(null);
+            $table->decimal('longitude',20,8,true)->default(null);
             $table->unsignedBigInteger('ranking_id');
             $table->foreign('ranking_id')->references('id')->on('rankings');
             $table->timestamps();

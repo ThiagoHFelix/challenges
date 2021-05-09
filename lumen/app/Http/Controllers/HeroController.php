@@ -75,7 +75,7 @@ class HeroController extends Controller
         $hero->delete();
 
         return response()->json([
-            "success" => false,
+            "success" => true,
             "message" => "Hero destroyed with success"
         ],200);
     }

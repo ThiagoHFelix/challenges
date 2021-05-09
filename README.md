@@ -110,4 +110,4 @@ POST | /api/allocation | AllocationController | store | Auth
 PUT | /api/allocation/{id} | AllocationController | update | Auth
 DELETE | /api/allocation/{id} | AllocationController | destroy | Auth
 
-+ Você pode obter a collenction do Postman nesse arquivo : [Arquivo](./iHero.postman_collection) 
++ Você pode obter a collenction do Postman nesse arquivo : [Arquivo](./iHero.postman_collection.json) 

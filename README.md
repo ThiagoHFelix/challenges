@@ -116,5 +116,5 @@ DELETE | /api/allocation/{id} | AllocationController | destroy | Auth
 
 #### Diagrama de Entidade e Relacionamento
 
-![DER](./database-doc/challenge-database.png ,"DER")
+![DER](./database-doc/challenge-database.png)
 

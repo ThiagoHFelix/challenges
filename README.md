@@ -2,7 +2,7 @@
 
 ### Dependências :notebook:
 - Docker 
-    * [How to install](https://docs.docker.com/compose/install/)
+    * [Veja como instalar](https://docs.docker.com/compose/install/)
 
 ### Rodando o projeto :smile:
 

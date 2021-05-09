@@ -78,6 +78,7 @@ curl -H 'Accept: application/json' -H "Authorization: Bearer ${TOKEN}" --request
 ```    
 ### Rotas
 
+> Você pode obter a collenction do Postman nesse [arquivo.](./iHero.postman_collection.json) 
 
 Method | Path | Controller | Action | Middleware  
 ---| --- | --- | --- | ----
@@ -110,11 +111,18 @@ POST | /api/allocation | AllocationController | store | Auth
 PUT | /api/allocation/{id} | AllocationController | update | Auth
 DELETE | /api/allocation/{id} | AllocationController | destroy | Auth
 
-+ Você pode obter a collenction do Postman nesse [arquivo.](./iHero.postman_collection.json) 
+
 
 ## Banco de dados
 
 #### Diagrama de Entidade e Relacionamento
 
 ![DER](./database-doc/challenge-database.png)
+
+##Projeto
+
+A primeira tecnologia escolhida para o projeto foi o Docker e por dois motivos bem simples: portabilidade e simplicidade para configurar um ambiente de desenvolvimento. A próxima escolha foi o framework, trabalho com laravel por um tempo porém como o projeto é pequeno não havia necessidade de utilizar laravel com todo o conjunto de bibliotecas e por esse motivo o framework escolhido foi o Lumen que é uma versão mais simplificada do Laravel.
+Toda a base de dados do projeto será criada no momento da instalação utilizando as migrations do laravel, tornando simples iniciar um novo ambiente sem ter que rodar sql diretamente na mão. Para a autenticação foi utilizado uma biblioteca chamada Passport porém como o Lumen é uma versão mais enxuta do Laravel foi necessário utilizar uma biblioteca terceira chamada lumen-passport para tornar isso possível.
+O próximo desafio foi fazer o passo a passo para configurar o novo ambiente e a solução foi criar um script em shell para facilitar em apenas um comando a instalação do ambiente de desenvolvimento.
+
 

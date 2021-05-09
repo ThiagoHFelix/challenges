@@ -56,7 +56,8 @@ fetch https://dl-cdn.alpinelinux.org/alpine/v3.13/community/x86_64/APKINDEX.tar.
 (12/26) Installing binutils (2.35.2-r1)
 ```
 
-3. Pronto, agora basta gerar um token de admin para poder fazer requisições na api. Utilizaremos o usuário admin que foi criado com os seeders mas é possivel cadastrar novos usuários com a rota http://localhost:8080/api/auth/register
+3. Pronto, agora basta gerar um token de admin para poder fazer requisições na api.
+>Utilizaremos o usuário admin que foi criado com os seeders mas é possivel cadastrar novos usuários com a rota /api/auth/register
 
 ```bash
 curl --request POST http://localhost:8080/api/auth/login -d 'email=admin@admin.com.br&password=root'
@@ -87,26 +88,32 @@ POST | /api/auth/register | AuthController | register | -
 POST | /api/auth/login | AuthController | login | -
 GET | /api/auth/logout | AuthController | logout | Auth
 GET | /api/hero | HeroController | index | Auth
+GET | /api/hero/{id} | HeroController | show | Auth
 POST | /api/hero | HeroController | store | Auth
 PUT | /api/hero/{id} | HeroController | update | Auth
 DELETE | /api/hero/{id} | HeroController | destroy | Auth
 GET | /api/ranking | RankingController | index | Auth
+GET | /api/ranking/{id} | RankingController | show | Auth
 POST | /api/ranking | RankingController | store | Auth
 PUT | /api/ranking/{id} | RankingController | update | Auth
 DELETE | /api/ranking/{id} | RankingController | destroy | Auth
 GET | /api/threatlevel | ThreatLevelController | index | Auth
+GET | /api/threatlevel/{id} | ThreatLevelController | show | Auth
 POST | /api/threatlevel | ThreatLevelController | store | Auth
 PUT | /api/threatlevel/{id} | ThreatLevelController | update | Auth
 DELETE | /api/threatlevel/{id} | ThreatLevelController | destroy | Auth
 GET | /api/threat | ThreatController | index | Auth
+GET | /api/threat/{id} | ThreatController | show | Auth
 POST | /api/threat | ThreatController | store | Auth
 PUT | /api/threat/{id} | ThreatController | update | Auth
 DELETE | /api/threat/{id} | ThreatController | destroy | Auth
 GET | /api/status | StatusController | index | Auth
+GET | /api/status/{id} | StatusController | show | Auth
 POST | /api/status | StatusController | store | Auth
 PUT | /api/status/{id} | StatusController | update | Auth
 DELETE | /api/status/{id} | StatusController | destroy | Auth
 GET | /api/allocation | AllocationController | index | Auth
+GET | /api/allocation/{id} | AllocationController | show | Auth
 POST | /api/allocation | AllocationController | store | Auth
 PUT | /api/allocation/{id} | AllocationController | update | Auth
 DELETE | /api/allocation/{id} | AllocationController | destroy | Auth
@@ -123,6 +130,6 @@ DELETE | /api/allocation/{id} | AllocationController | destroy | Auth
 
 A primeira tecnologia escolhida para o projeto foi o Docker e por dois motivos bem simples: portabilidade e simplicidade para configurar um ambiente de desenvolvimento. A próxima escolha foi o framework, trabalho com laravel por um tempo porém como o projeto é pequeno não havia necessidade de utilizar laravel com todo o conjunto de bibliotecas e por esse motivo o framework escolhido foi o Lumen que é uma versão mais simplificada do Laravel.
 Toda a base de dados do projeto será criada no momento da instalação utilizando as migrations do laravel, tornando simples iniciar um novo ambiente sem ter que rodar sql diretamente na mão. Para a autenticação foi utilizado uma biblioteca chamada Passport porém como o Lumen é uma versão mais enxuta do Laravel foi necessário utilizar uma biblioteca terceira chamada lumen-passport para tornar isso possível.
-O próximo desafio foi fazer o passo a passo para configurar o novo ambiente e a solução foi criar um script em shell para facilitar em apenas um comando a instalação do ambiente de desenvolvimento.
+Outro desafio foi fazer o passo a passo para configurar o novo ambiente e a solução foi criar um script em shell para facilitar em apenas um comando a instalação do ambiente de desenvolvimento.
 
 

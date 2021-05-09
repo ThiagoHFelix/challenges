@@ -110,10 +110,11 @@ POST | /api/allocation | AllocationController | store | Auth
 PUT | /api/allocation/{id} | AllocationController | update | Auth
 DELETE | /api/allocation/{id} | AllocationController | destroy | Auth
 
-+ Você pode obter a collenction do Postman nesse arquivo : [Arquivo](./iHero.postman_collection) 
++ Você pode obter a collenction do Postman nesse [arquivo.](./iHero.postman_collection.json) 
 
 ## Banco de dados
 
 #### Diagrama de Entidade e Relacionamento
 
 ![DER](./database-docs/challenge-database.png, "DER")
+

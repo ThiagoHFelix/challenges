@@ -8,29 +8,29 @@
 
 1. Clone o projeto 
 
-```shell
+```bash
 git clone https://github.com/ThiagoHFelix/challenges.git
 ```
 2. Vá para o diretório 
 
-```shell
+```bash
 cd ./challenges
 ```
 
 3. De permissão de execução para o script
 
-```shell
+```bash
 chmod +x install.sh
 ```
 
 3. Rode o script de instalação
 
-```shell
+```bash
 ./install.sh
 ```
 + Você deverá ver algo semelhante a isso
 
-```shell
+```bash
 
 Aguarde, instalando e configurando a API
 
@@ -58,21 +58,54 @@ fetch https://dl-cdn.alpinelinux.org/alpine/v3.13/community/x86_64/APKINDEX.tar.
 
 3. Pronto, agora basta gerar um token de admin para poder fazer requisições na api. Utilizaremos o usuário admin que foi criado com os seeders mas é possivel cadastrar novos usuários com a rota http://localhost:8080/api/auth/register
 
-```shell
+```bash
 curl --request POST http://localhost:8080/api/auth/login -d 'email=admin@admin.com.br&password=root'
 ```
 
 + Se tudo der certo o retorno deve ser o seguinte:
-```shell
+```bash
 {"token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiZDBhODYzOGQxM2ExNjQ1NTQwYjkzYzU3MTczNmZlMWE1ODZjZDJmMzc5YjNiNWRmOTk4NTYzNTM5ZDM2NThmMWVmZDVlYzM2ZDkwZjJmZDIiLCJpYXQiOjE2MjA1MjI1NDAsIm5iZiI6MTYyMDUyMjU0MCwiZXhwIjoxNjUyMDU4NTQwLCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.aPzdTU-rLgL2_faIqnlRW73CRdcPJ3dqGEPyxQS2foHYt3tFGHmfTCjYi8blOJ1sWQOaPeM__6sXIKl5BLSgZuTo9nm8c0wphlIMwoj4lgJ_LvFVeyqGNQ2MYkpGxzpcSVISLC55J3v8Rs53xwUxj9SSfl8FpDnaZt1a9Qmr8FmkbiYpLrCR5eWHtN96NkV2fN6PIWcidTBIGGTF6cfw0toehr5Ywp3DH6hHo2hWPNkA5Nnl9OHJFYU__67vmABoDkxk4VQ3OcZHnUHriEXIY8fXlpmE6j42LjivJKAcYknL7z1DqPqFNhGNE2nYCyBx9BfOdRBcw0nAxnAypDRkeV5tEsnEH1wlnmRLgjPYAGRPLKBzyZkHDn0ILsJL3Qq1LoAUtM8OyPfjrsaRNkYwDGXRR0_z8yWMDZwSo6nOeRdLwN5IwVTlqFdnYsIJwEUnlza812IJksgG9d8WtVZe2N7bDzSA-Nz6VA_eCa7lKon02dgT1wkfh0Rn3I2WjhvmgMp6LVdBjrRRf8sp4jQPV8JKDLe-3UwUFsETysxbhpxxvHiRORx0CRLUB"
 ```
 
 4. Crie a variável TOKEN   
 
-```shell
+```bash
 TOKEN="eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiZDBhODYzOGQxM2ExNjQ1NTQwYjkzYzU3MTczNmZlMWE1ODZjZDJmMzc5YjNiNWRmOTk4NTYzNTM5ZDM2NThmMWVmZDVlYzM2ZDkwZjJmZDIiLCJpYXQiOjE2MjA1MjI1NDAsIm5iZiI6MTYyMDUyMjU0MCwiZXhwIjoxNjUyMDU4NTQwLCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.aPzdTU-rLgL2_faIqnlRW73CRdcPJ3dqGEPyxQS2foHYt3tFGHmfTCjYi8blOJ1sWQOaPeM__6sXIKl5BLSgZuTo9nm8c0wphlIMwoj4lgJ_LvFVeyqGNQ2MYkpGxzpcSVISLC55J3v8Rs53xwUxj9SSfl8FpDnaZt1a9Qmr8FmkbiYpLrCR5eWHtN96NkV2fN6PIWcidTBIGGTF6cfw0toehr5Ywp3DH6hHo2hWPNkA5Nnl9OHJFYU__67vmABoDkxk4VQ3OcZHnUHriEXIY8fXlpmE6j42LjivJKAcYknL7z1DqPqFNhGNE2nYCyBx9BfOdRBcw0nAxnAypDRkeV5tEsnEH1wlnmRLgjPYAGRPLKBzyZkHDn0ILsJL3Qq1LoAUtM8OyPfjrsaRNkYwDGXRR0_z8yWMDZwSo6nOeRdLwN5IwVTlqFdnYsIJwEUnlza812IJksgG9d8WtVZe2N7bDzSA-Nz6VA_eCa7lKon02dgT1wkfh0Rn3I2WjhvmgMp6LVdBjrRRf8sp4jQPV8JKDLe-3UwUFsETysxbhpxxvHiRORx0CRLUB" 
 ```
 5. Faça a requisição
-```shell
+```bash
 curl -H 'Accept: application/json' -H "Authorization: Bearer ${TOKEN}" --request GET https://localhost:8080/api/hero
 ```    
+### Rotas
+
+
+Tipo | Rota | Controller | Action | Middleware  
+---| --- | --- | --- | ----
+GET | / | - | - | -
+POST | /api/auth/register | AuthController | register | -
+POST | /api/auth/login | AuthController | login | -
+GET | /api/auth/logout | AuthController | logout | Auth
+GET | /api/hero | HeroController | index | Auth
+POST | /api/hero | HeroController | store | Auth
+PUT | /api/hero/{id} | HeroController | update | Auth
+DELETE | /api/hero/{id} | HeroController | destroy | Auth
+GET | /api/ranking | RankingController | index | Auth
+POST | /api/ranking | RankingController | store | Auth
+PUT | /api/ranking/{id} | RankingController | update | Auth
+DELETE | /api/ranking/{id} | RankingController | destroy | Auth
+GET | /api/threatlevel | ThreatLevelController | index | Auth
+POST | /api/threatlevel | ThreatLevelController | store | Auth
+PUT | /api/threatlevel/{id} | ThreatLevelController | update | Auth
+DELETE | /api/threatlevel/{id} | ThreatLevelController | destroy | Auth
+GET | /api/threat | ThreatController | index | Auth
+POST | /api/threat | ThreatController | store | Auth
+PUT | /api/threat/{id} | ThreatController | update | Auth
+DELETE | /api/threat/{id} | ThreatController | destroy | Auth
+GET | /api/status | StatusController | index | Auth
+POST | /api/status | StatusController | store | Auth
+PUT | /api/status/{id} | StatusController | update | Auth
+DELETE | /api/status/{id} | StatusController | destroy | Auth
+GET | /api/allocation | AllocationController | index | Auth
+POST | /api/allocation | AllocationController | store | Auth
+PUT | /api/allocation/{id} | AllocationController | update | Auth
+DELETE | /api/allocation/{id} | AllocationController | destroy | Auth

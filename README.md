@@ -74,5 +74,5 @@ TOKEN="eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiZDBhODYzOGQx
 ```
 5. Faça a requisição
 ```shell
-curl -H 'Accept: application/json' -H "Authorization: Bearer ${TOKEN}" --request GET https://localhost:8080/api/hero
+curl -H 'Accept: application/json' -H "Authorization: Bearer ${TOKEN}" --request GET http://localhost:8080/api/hero
 ```    

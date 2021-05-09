@@ -13,6 +13,12 @@ class RankingController extends Controller
         return response()->json(Ranking::get());
     }
 
+    public function show($id)
+    {
+        $ranking = Ranking::findOrFail($id);
+        return response()->json($ranking);
+    }
+
     public function store(Request $request)
     {
         $this->validate($request, [

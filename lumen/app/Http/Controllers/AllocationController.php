@@ -16,6 +16,12 @@ class AllocationController extends Controller
         return response()->json(Allocation::with(['threat', 'hero', 'status'])->get());
     }
 
+    public function show($id)
+    {
+        $allocation = Allocation::with(['threat', 'hero', 'status'])->findOrFail($id);
+        return response()->json($allocation);
+    }
+
     public function store(Request $request)
     {
 

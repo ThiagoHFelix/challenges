@@ -15,6 +15,12 @@ class ThreatController extends Controller
         return response()->json(Threat::with(['monster','level'])->get());                          
     }
 
+    public function show($id)
+    {
+        $threat = Threat::with(['monster','level'])->findOrFail($id);
+        return response()->json($threat);
+    }
+
     public function store(Request $request)
     {
         $this->validate($request, [

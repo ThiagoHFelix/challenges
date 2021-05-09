@@ -13,6 +13,12 @@ class ThreatLevelController extends Controller
         return response()->json(ThreatLevel::get());
     }
 
+    public function show($id)
+    {
+        $threat_level = ThreatLevel::findOrFail($id);
+        return response()->json($threat_level);
+    }
+
     public function store(Request $request)
     {
         $this->validate($request, [

@@ -13,6 +13,12 @@ class HeroController extends Controller
         return response()->json(Hero::with('ranking')->get());
     }
 
+    public function show($id)
+    {
+        $hero = Hero::with('ranking')->findOrFail($id);
+        return response()->json($hero);
+    }
+
     public function store(Request $request)
     {
         $this->validate($request, [

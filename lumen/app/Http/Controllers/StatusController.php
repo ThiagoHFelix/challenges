@@ -13,6 +13,12 @@ class StatusController extends Controller
         return response()->json(Status::get());
     }
 
+    public function show($id)
+    {
+        $status = Status::findOrFail($id);
+        return response()->json($status);
+    }
+
     public function store(Request $request)
     {
         $this->validate($request, [

@@ -14,7 +14,7 @@ echo -e "\n\nAguarde, instalando e configurando a API\n\n"
 cp ./lumen/.env.example ./lumen/.env
 
 #Permissão para o framework registrar os logs
-chmod -R 775 ./lumen/storage
+chmod -R 777 ./lumen/storage
 
 #criando a pasta para salvar a base dados
 mkdir ./db

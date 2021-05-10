@@ -79,7 +79,7 @@ curl -H 'Accept: application/json' -H "Authorization: Bearer ${TOKEN}" --request
 ```    
 ### Rotas
 
-> Você pode obter a collenction do Postman nesse [arquivo.](./iHero.postman_collection.json) 
+> Você pode obter a collection do Postman nesse [arquivo.](./iHero.postman_collection.json) Veja também como fazer a importação do JSON [Aqui](https://learning.postman.com/docs/getting-started/importing-and-exporting-data/)
 
 Method | Path | Controller | Action | Middleware  
 ---| --- | --- | --- | ----
